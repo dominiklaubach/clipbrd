@@ -31,7 +31,6 @@ var clipbrd = {
         this.input.style.width = 'auto';
         this.input.style.height = 'auto';
         this.input.style.visibility = 'visible';
-        this.input.style.opacity = '0';
 
         this.input.value = text;
 
@@ -49,13 +48,17 @@ var clipbrd = {
                 if( onError ) {
                     onError();
                 }
-
-                return;
             }
 
-            if( onSuccess ) {
+            if( success && onSuccess ) {
                 onSuccess(that.input.value);
             }
+
+            this.input.style.top = '-1px';
+            this.input.style.left = '-1px';
+            this.input.style.width = '1px';
+            this.input.style.height = '1px';
+            this.input.style.visibility = 'hidden';
         })
     }
 };

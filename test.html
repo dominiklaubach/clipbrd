@@ -1,0 +1,19 @@
+<html>
+<head>
+    <script src="clipbrd.js"></script>
+</head>
+<body>
+<script>
+    window.addEventListener('load', function() {
+        document.getElementById('button').addEventListener('click', function() {
+            clipbrd.copy('test1234', function( copiedValue ) {
+                alert('SUCCESSFULLY COPIED "' + copiedValue + '" TO CLIPBOARD');
+            }, function() {
+                alert('ERROR');
+            });
+        });
+    })
+</script>
+<input type="button" id="button" value="copy"/>
+</body>
+</html>
